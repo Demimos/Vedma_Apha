@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.Vedma.Roleplay.Vedma_Alpha">
+
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:fullBackupContent="@xml/backup_descriptor"
+        android:icon="@mipmap/ic_launch_vedma"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launch_vedma_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".ACTIVITY.RegisterNewUserActivity"></activity>
+        <activity
+            android:name=".ACTIVITY.ContactsActivity"
+            android:label="@string/contacts"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".ACTIVITY.ChooserActivity" />
+        <activity
+            android:name=".ACTIVITY.ActivityNewArticle"
+            android:label="@string/new_article_label"
+            android:parentActivityName=".ACTIVITY.ActivityPublishers"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.ActivityPublishers" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.ActivityPublishers"
+            android:parentActivityName=".ACTIVITY.News"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.News" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.AddDiaryPageActivity"
+            android:label="@string/diary_new_page_label"
+            android:parentActivityName=".ACTIVITY.Diary"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.Diary" />
+        </activity>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_stat_name" />
+        <!--
+             Set color used with incoming notification messages. This is used when no color is set for the incoming
+             notification message. See README(https://goo.gl/6BKBk7) for more.
+        -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/action_channel" />
+        <meta-data
+            android:name="firebase_messaging_auto_init_enabled"
+            android:value="true" />
+
+        <service
+            android:name=".SERVICE.MyFirebaseMessagingService"
+            android:exported="false"
+            tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAH5sMs2m3Kb4rX-FpIIkiBI1lVx1gYo1w" />
+
+        <activity
+            android:name=".ACTIVITY.MainActivity"
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:theme="@style/AppTheme.NoActionBar"
+            tools:ignore="InnerclassSeparator">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:host="vedma-proj.ru"
+                    android:scheme="https" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".ACTIVITY.Diary"
+            android:label="@string/Diary"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.Objects"
+            android:label="@string/Objects"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.Account"
+            android:label="@string/Config"
+            android:noHistory="true"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".ACTIVITY.News"
+            android:label="@string/newsLog"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+
+        <receiver
+            android:name=".SERVICE.AlarmReceiver"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.Vedma.Roleplay.Vedma_Alpha.alarm_global" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".SERVICE.MyService"
+            android:enabled="true"
+            android:exported="false"
+            android:permission="android.permission.ACCESS_FINE_LOCATION"
+            android:process="@string/vedma_process" />
+
+        <activity
+            android:name=".ACTIVITY.MapsActivity"
+            android:label="@string/title_activity_maps"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+
+        <service
+            android:name=".SERVICE.AsyncService"
+            android:exported="false" />
+
+        <activity
+            android:name=".ACTIVITY.News_one"
+            android:label="@string/newsone"
+            android:parentActivityName=".ACTIVITY.News"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.News" />
+        </activity>
+
+        <service
+            android:name=".SERVICE.MenuIntentService"
+            android:exported="false" />
+
+        <activity
+            android:name=".ACTIVITY.QRTag"
+            android:label="@string/title_activityqr"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.Abilities"
+            android:label="@string/title_activity_abilities"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.ActionMap"
+            android:label="@string/title_activity_action_map"
+            android:parentActivityName=".ACTIVITY.Abilities"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.Abilities" />
+        </activity>
+        <activity
+            android:name=".ACTIVITY.InGameConfig"
+            android:label="@string/in_game_config_title"
+            android:parentActivityName=".ACTIVITY.MainActivity"
+            android:theme="@style/AppTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.Vedma.Roleplay.Vedma_Alpha.ACTIVITY.MainActivity" />
+        </activity>
+
+        <service
+            android:name=".SERVICE.MyJobService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+    </application>
+
+</manifest>

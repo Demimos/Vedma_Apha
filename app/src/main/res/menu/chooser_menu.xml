@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/news"
+        android:icon="@drawable/accept_it"
+        android:orderInCategory="1"
+        android:title="Accept"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/clear"
+        android:icon="@drawable/decline"
+        android:orderInCategory="2"
+        android:title="Clear"
+        app:showAsAction="ifRoom" />
+</menu>

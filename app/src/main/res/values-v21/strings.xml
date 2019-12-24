@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_activityqr">Метка</string>
+    <string name="in_game_config_title">Профиль</string>
+    <string name="service_desc">mydesc</string>
+</resources>

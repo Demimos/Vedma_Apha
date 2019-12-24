@@ -1,0 +1,15 @@
+{
+  "project_info": {
+    "project_number": "928708304718",
+    "firebase_url": "https://witch20-eaa4a.firebaseio.com",
+    "project_id": "witch20",
+    "storage_bucket": "witch20-eaa4a.appspot.com"
+  },
+  "client": [
+  "client_info": {
+    "mobilesdk_app_id": "1:661869148477:android:8bcbfdea0b0200d1",
+    "android_client_info": {
+      "package_name": "com.vedma.Roleplay.Vedma_Alpha"
+    }],
+  "configuration_version": "1"
+}

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".ACTIVITY.RegisterNewUserActivity">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text=" " />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Введите свои настоящие данные, чтобы мастерам было проще вас найти"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/Name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="ФИО"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/Phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="+7 (999)999-99-99"
+        android:inputType="phone" />
+
+    <Switch
+        android:id="@+id/emailSwitch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:checked="false"
+        android:text="Дублировать сообщения на почту?"
+        android:textOff="только push уведомления"
+        android:textOn="дублировать на почту" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="16dp"
+        android:paddingBottom="8dp"
+        android:text="Введите реальную электронную почту, так как она будет вашим логином"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:contentDescription="Email"
+        android:ems="10"
+        android:hint="Электронная почта"
+        android:inputType="textWebEmailAddress|textEmailAddress" />
+
+    <EditText
+        android:id="@+id/Password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Введите пароль"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/Password_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Подтвердите пароль"
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/ok"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhiteOpacity"
+        android:onClick="RegisterClick"
+        android:text="Готово"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+</LinearLayout>
